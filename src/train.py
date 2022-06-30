@@ -22,7 +22,7 @@ def split_dataset(dataset, method, method_config):
     elif method == Methods.Full:
         pass
     elif method == Methods.LLE:
-        # TODO: implementirati za LLE slično kao za PCA
+        # TODO: implementirati za LLE slično kao za PCA - primi x (dataframe s featurima) i vrati dataframe s LLE featurima
         pass
     else:
         raise NotImplementedError
@@ -76,6 +76,7 @@ def main():
                                      "min_samples_leaf": 1,
                                      "max_features": "sqrt"}}
 
+    # TODO: add Methods.LLE config
     method_config_file = {Methods.PCA: {"n_components": 1}}
 
     dataset = ExampleDataset()
