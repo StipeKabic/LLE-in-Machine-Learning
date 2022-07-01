@@ -8,4 +8,4 @@ class ExampleDataset:
         self.data = pd.DataFrame({"feature1": list(range(100)),
                                   "feature2": list(range(100)),
                                   "feature3": list(range(100)),
-                                  "target": 50 * [0] + 50*[1]})
+                                  "target": 30 * [0] + 40*[1] + 30*[0]})

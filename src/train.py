@@ -18,7 +18,7 @@ def split_dataset(dataset, method, method_config):
     x, y = dataset.data.drop(columns=[dataset.target_name]), dataset.data[dataset.target_name]
     if method == Methods.PCA:
         pca = PCA(**method_config[method])
-        pca.fit_transform(x)
+        x = pca.fit_transform(x)
     elif method == Methods.Full:
         pass
     elif method == Methods.LLE:
