@@ -70,21 +70,23 @@ class Trainer:
             model = self.classification_models[model_name]
         else:
             raise NotImplementedError
-        for method in (Methods.PCA, Methods.Full):
-            if method != Methods.Full:
-                print(f"Training {model_name} on {dataset.name} with {method.value}")
-                for dimension in tqdm(self.dimensions[dataset.name]):
-                    self.method_config[method]["n_components"] = dimension
-                    split = split_dataset(dataset, method, self.method_config)
-                    model.fit(split.x_train, split.y_train)
-                    score = model.score(split.x_test, split.y_test)
-                    scores[method.value + f"_{dimension}"] = score
-            else:
-                dimension = len(dataset.data.columns) - 1
+
+        "train with original data"
+        dimension = len(dataset.data.columns) - 1
+        split = split_dataset(dataset, Methods.Full, self.method_config)
+        model.fit(split.x_train, split.y_train)
+        score = model.score(split.x_test, split.y_test)
+        scores[Methods.Full.value + f"_{dimension}"] = score
+
+        for method in self.method_config:
+            print(f"Training {model_name} on {dataset.name} with {method.value}")
+            for dimension in tqdm(self.dimensions[dataset.name]):
+                self.method_config[method]["n_components"] = dimension
                 split = split_dataset(dataset, method, self.method_config)
                 model.fit(split.x_train, split.y_train)
                 score = model.score(split.x_test, split.y_test)
                 scores[method.value + f"_{dimension}"] = score
+
         return scores
 
     def train_all_combinations(self):
@@ -152,7 +154,7 @@ def main():
 
     results = trainer.process_results()
     print(results)
-    print(results[(results.model == "Random Forest Classifier") & (results.dataset == "heart_attack")])
+    print(results[(results.model == "Random Forest Regressor") & (results.dataset == "ames_housing")])
     results.to_csv("data/results.csv")
 
 
