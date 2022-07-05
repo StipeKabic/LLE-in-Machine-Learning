@@ -1,5 +1,6 @@
 import sklearn.datasets as sd
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 
 class DatasetLoader:
@@ -31,6 +32,13 @@ class DatasetLoader:
         data = sd.fetch_openml(name="house_prices", as_frame=True)
         df = data['data']
         df['sale_price'] = data['target']
+        categorical = df.select_dtypes(include=['object']).columns
+        # df = pd.get_dummies(df, columns=categorical)
+        # df.dropna(inplace=True)
+        label_encoder = LabelEncoder()
+        for categorical_variable in categorical:
+            df[categorical_variable] = label_encoder.fit_transform(df[categorical_variable])
+        df.dropna(inplace=True)
         self.datasets['ames_housing'] = {'data': df, 'target_name': 'sale_price', 'type': 'r'}
 
     def load_heart_attack(self):

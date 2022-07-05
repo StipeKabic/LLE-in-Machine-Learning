@@ -3,7 +3,9 @@ from enum import Enum
 
 class Models(str, Enum):
     Logistic = "Logistic Regression"
-    RF = "Random Forest"
+    RFC = "Random Forest Classifier"
+    RFR = "Random Forest Regressor"
+    Linear = "Linear Regression"
 
 
 class Methods(str, Enum):
