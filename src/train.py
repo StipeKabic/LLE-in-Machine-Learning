@@ -82,7 +82,6 @@ def main():
     dataset = ExampleDataset()
     datasets = [dataset]
     trainer = Trainer(model_config_file, datasets, method_config_file)
-    print(trainer.results)
     trainer.train_all_combinations()
     print(trainer.results)
 
