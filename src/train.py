@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from enums import Models, Methods
+from enums import Models, Methods, make_grid
 from sklearn.decomposition import PCA
-from sklearn.linear_model import LogisticRegression, LinearRegression
+from sklearn.linear_model import LogisticRegression, LinearRegression, Ridge
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from DatasetLoader import DatasetLoader
 from DatasetClass import DatasetClass
@@ -10,6 +10,12 @@ from tqdm import tqdm
 from lle import LLE
 from LLEClass import LLEClass
 import random
+
+import numpy as np
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler, PowerTransformer, QuantileTransformer
+
+NUM_OF_SPLITS = 3
 
 
 class SplitDataset:
@@ -28,6 +34,7 @@ def apply_method(x, method, method_config, LLEClass):
     elif method == Methods.LLE:
         # TODO: implementirati za LLE slično kao za PCA - primi x (dataframe s featurima) i vrati dataframe s LLE featurima
         x = LLEClass.return_dataframe(method_config[method]["n_components"])
+        x = LLEClass.return_dataframe(method_config[method]["n_components"])
         pass
     else:
         raise NotImplementedError
@@ -45,7 +52,7 @@ def get_xy(dataset):
 
 def split_dataset(x,y, method, method_config, LLEClass):
     x = apply_method(x, method, method_config, LLEClass)
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.35, random_state=42)
     return SplitDataset(x_train, x_test, y_train, y_test)
 
 
@@ -58,8 +65,15 @@ class Trainer:
         :param datasets: list of datasets - dataset is a class with attributes: name(string), data(pandas dataframe), target_name(string, name of target variable)
         :param method_config: config with hyperparameters for dimensionality reduciton methods
         """
-        self.classification_models = {model: self.init_models(model)(**classification_model_config[model]) for model in classification_model_config}
-        self.regression_models = {model: self.init_models(model)(**regression_model_config[model]) for model in regression_model_config}
+
+        # self.classification_models = {model: self.init_models(model)(**classification_model_config[model]) for model in classification_model_config}
+        # self.regression_models = {model: self.init_models(model)(**regression_model_config[model]) for model in regression_model_config}
+
+        self.regression_models = [Models.Linear, Models.RFR]
+        self.classification_models = [Models.Logistic, Models.RFC]
+
+        self.models = list(classification_model_config.keys())
+        self.config = classification_model_config
 
         self.datasets = datasets
         self.method_config = method_config
@@ -74,18 +88,15 @@ class Trainer:
         elif model == Models.RFR:
             return RandomForestRegressor
         elif model == Models.Linear:
-            return LinearRegression
+            return Ridge  # LinearRegression
         else:
             raise NotImplementedError
 
-    def train(self, model_name, dataset, type, LLEClass, x, y):
+    def train(self, model_name, _model, dataset, type, LLEClass, x, y):
         scores = {}
-        if type == "r":
-            model = self.regression_models[model_name]
-        elif type == "c":
-            model = self.classification_models[model_name]
-        else:
-            raise NotImplementedError
+
+        # model = make_pipeline(PowerTransformer(), RobustScaler(), _model)
+        model = make_pipeline(RobustScaler(), _model)
 
         "train with original data"
         dimension = len(dataset.data.columns) - 1
@@ -107,6 +118,13 @@ class Trainer:
 
         return scores
 
+    def accumulate_results(self, old_results, new_results):
+        if len(old_results.keys()) == 0:
+            old_results = new_results
+        else:
+            old_results = {k: max(old_results[k], new_results[k]) for k in new_results.keys()}
+        return old_results
+
     def train_all_combinations(self):
         for dataset in self.datasets:
             x,y = get_xy(dataset)
@@ -117,9 +135,20 @@ class Trainer:
             elif dataset.type == "c":
                 models = self.classification_models
             else:
-                raise NotImplementedError
+                models = self.classification_models
+
             for model_name in models:
-                results = self.train(model_name, dataset, dataset.type, LLE, x,y)
+                model_class = self.init_models(model_name)
+                grid = make_grid(self.config[model_name])
+                results = {}
+                for params in grid:
+                    if model_name != Models.Linear:
+                        params["n_jobs"] = -1
+                    model = model_class(**params)
+
+                    new_results = self.train(model_name, model, dataset, dataset.type, LLE, x, y)
+                    results = self.accumulate_results(results, new_results)
+
                 results["model"] = model_name.value
                 results["dataset"] = dataset.name
                 self.results.append(results)
@@ -149,6 +178,18 @@ def init_datasets():
 def main():
     random.seed(42)
 
+    model_config_file = {Models.Logistic: {"penalty": ['l1', 'l2']},
+                         Models.RFC: {"n_estimators": [4, 8],
+                                      "max_depth": [3, 7],
+                                      "min_samples_split": [2, 4],
+                                      "min_samples_leaf": [1, 3],
+                                      "max_features": ["sqrt"]}
+                         }
+
+    model_config_file[Models.Linear] = model_config_file[Models.Logistic]
+    model_config_file[Models.Linear].pop('penalty', None)
+    model_config_file[Models.RFR] = model_config_file[Models.RFC]
+
     classification_model_config_file = {Models.Logistic: {"penalty": 'none'},
                                         Models.RFC: {"n_estimators": 20,
                                                      "max_depth": 5,
@@ -170,11 +211,11 @@ def main():
                           Methods.LLE: {"n_components": None, "r": 0.001, "k": 35}}
 
     datasets = init_datasets()
-    datasets = datasets[:3]
 
     dimension_config_file = {dataset.name: list(range(1, len(dataset.data.columns) - 1)) for dataset in datasets}
 
-    trainer = Trainer(classification_model_config_file, regression_model_config_file, datasets, method_config_file, dimension_config_file)
+    # trainer = Trainer(classification_model_config_file, regression_model_config_file, datasets, method_config_file, dimension_config_file)
+    trainer = Trainer(model_config_file, model_config_file, datasets, method_config_file, dimension_config_file)
     trainer.train_all_combinations()
 
     results = trainer.process_results()
