@@ -47,5 +47,5 @@ def lle(r, k, X, n_components):
     print(M)
     vals, vecs = eigsh(M, k=n_components, which='SM')
     y = vecs[:, [i for i in range(1, n_components)]].transpose() * math.sqrt(N)
-    df = pd.DataFrame(y)
+    df = pd.DataFrame(np.transpose(y))
     return df
