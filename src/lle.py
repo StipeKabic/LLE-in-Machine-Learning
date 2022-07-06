@@ -1,16 +1,18 @@
 import numpy as np
 import scipy.sparse as sp
 from scipy.sparse.linalg import eigsh
+#from numpy.linalg import eigh
 import math
 import pandas as pd
+import time
 
 
-def lle(r, k, X, n_components):
+def LLE(r, k, X, n_components):
     # input: D x N matrix X (D-dimensionality, N - number of vectors)
     # output d x N matrix (d-reduced dimension)
     # k - number of nearest neighbors
-
     X = X.to_numpy()
+    X = X.transpose()
     N = len(X[0])
     D = len(X)
 
@@ -26,26 +28,24 @@ def lle(r, k, X, n_components):
         tol = r
     else:
         tol = 0
-
     W = np.zeros((k, N))
-    z_ = np.zeros((k, N))
     for i in range(N):
         z = X[:, index[:, i]] - X[:, i][:, np.newaxis]
         C = np.dot(z.transpose(), z)
-        C = C + r * np.dot(np.identity(k), C.trace())
+        C = C + tol * np.dot(np.identity(k), C.trace())
         W[:, i] = np.linalg.solve(C, np.ones(k))
         W[:, i] = W[:, i] / sum(W[:, i])
 
     # step 3 - compute embedding
     M = sp.csr_matrix(np.identity(N))
+    #M = np.identity(N)
     for i in range(N):
         w = W[:, i]
         j = index[:, i]
         M[i, j] = M[i, j] - w
         M[j, i] = M[j, i] - w[:, np.newaxis]
         M[j[:, np.newaxis], j] = M[j[:, np.newaxis], j] + np.dot(w[:, np.newaxis], w[np.newaxis])
-    print(M)
-    vals, vecs = eigsh(M, k=n_components, which='SM')
-    y = vecs[:, [i for i in range(1, n_components)]].transpose() * math.sqrt(N)
+    vals, vecs = eigsh(M, k=N-1, which='SM')
+    y = vecs[:, [i for i in range(1, n_components+1)]].transpose() * math.sqrt(N)
     df = pd.DataFrame(np.transpose(y))
     return df
