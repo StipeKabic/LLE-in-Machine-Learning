@@ -108,8 +108,7 @@ class Trainer:
 
         for method in self.method_config:
             print(f"Training {model_name} on {dataset.name} with {method.value}")
-            dims = np.min(self.dimensions[dataset.name], 20)
-            for dimension in tqdm(dims):
+            for dimension in tqdm(self.dimensions[dataset.name]):
                 self.method_config[method]["n_components"] = dimension
                 split = split_dataset(x, y, method, self.method_config, LLEClass)
 
