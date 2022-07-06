@@ -52,7 +52,7 @@ def get_xy(dataset):
 
 def split_dataset(x,y, method, method_config, LLEClass):
     x = apply_method(x, method, method_config, LLEClass)
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.35, random_state=42)
     return SplitDataset(x_train, x_test, y_train, y_test)
 
 
