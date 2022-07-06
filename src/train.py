@@ -7,6 +7,9 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from DatasetLoader import DatasetLoader
 from DatasetClass import DatasetClass
 from tqdm import tqdm
+from lle import LLE
+from LLEClass import LLEClass
+import random
 
 
 class SplitDataset:
@@ -16,9 +19,7 @@ class SplitDataset:
         self.y_train = y_train
         self.y_test = y_test
 
-
-def split_dataset(dataset, method, method_config):
-    x, y = dataset.data.drop(columns=[dataset.target_name]), dataset.data[dataset.target_name]
+def apply_method(x, method, method_config, LLEClass):
     if method == Methods.PCA:
         pca = PCA(**method_config[method])
         x = pca.fit_transform(x)
@@ -26,9 +27,24 @@ def split_dataset(dataset, method, method_config):
         pass
     elif method == Methods.LLE:
         # TODO: implementirati za LLE slično kao za PCA - primi x (dataframe s featurima) i vrati dataframe s LLE featurima
+        x = LLEClass.return_dataframe(method_config[method]["n_components"])
         pass
     else:
         raise NotImplementedError
+    return x
+
+def get_xy(dataset):
+    try:
+        dataset.data = dataset.data.sample(1000)
+    except:
+        pass
+
+    x, y = dataset.data.drop(columns=[dataset.target_name]), dataset.data[dataset.target_name]
+
+    return x,y
+
+def split_dataset(x,y, method, method_config, LLEClass):
+    x = apply_method(x, method, method_config, LLEClass)
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
     return SplitDataset(x_train, x_test, y_train, y_test)
 
@@ -62,7 +78,7 @@ class Trainer:
         else:
             raise NotImplementedError
 
-    def train(self, model_name, dataset, type):
+    def train(self, model_name, dataset, type, LLEClass, x, y):
         scores = {}
         if type == "r":
             model = self.regression_models[model_name]
@@ -73,7 +89,8 @@ class Trainer:
 
         "train with original data"
         dimension = len(dataset.data.columns) - 1
-        split = split_dataset(dataset, Methods.Full, self.method_config)
+        split = split_dataset(x,y, Methods.Full, self.method_config, LLEClass)
+
         model.fit(split.x_train, split.y_train)
         score = model.score(split.x_test, split.y_test)
         scores[Methods.Full.value + f"_{dimension}"] = score
@@ -82,7 +99,8 @@ class Trainer:
             print(f"Training {model_name} on {dataset.name} with {method.value}")
             for dimension in tqdm(self.dimensions[dataset.name]):
                 self.method_config[method]["n_components"] = dimension
-                split = split_dataset(dataset, method, self.method_config)
+                split = split_dataset(x, y, method, self.method_config, LLEClass)
+
                 model.fit(split.x_train, split.y_train)
                 score = model.score(split.x_test, split.y_test)
                 scores[method.value + f"_{dimension}"] = score
@@ -91,6 +109,9 @@ class Trainer:
 
     def train_all_combinations(self):
         for dataset in self.datasets:
+            x,y = get_xy(dataset)
+            LLE = LLEClass(**self.method_config[Methods.LLE],
+                           X = x)
             if dataset.type == "r":
                 models = self.regression_models
             elif dataset.type == "c":
@@ -98,7 +119,7 @@ class Trainer:
             else:
                 raise NotImplementedError
             for model_name in models:
-                results = self.train(model_name, dataset, dataset.type)
+                results = self.train(model_name, dataset, dataset.type, LLE, x,y)
                 results["model"] = model_name.value
                 results["dataset"] = dataset.name
                 self.results.append(results)
@@ -126,6 +147,8 @@ def init_datasets():
 
 
 def main():
+    random.seed(42)
+
     classification_model_config_file = {Models.Logistic: {"penalty": 'none'},
                                         Models.RFC: {"n_estimators": 20,
                                                      "max_depth": 5,
@@ -143,9 +166,11 @@ def main():
                                     }
 
     # TODO: add Methods.LLE config
-    method_config_file = {Methods.PCA: {"n_components": None}}
+    method_config_file = {Methods.PCA: {"n_components": None},
+                          Methods.LLE: {"n_components": None, "r": 0.001, "k": 35}}
 
     datasets = init_datasets()
+    datasets = datasets[:3]
 
     dimension_config_file = {dataset.name: list(range(1, len(dataset.data.columns) - 1)) for dataset in datasets}
 
@@ -154,8 +179,9 @@ def main():
 
     results = trainer.process_results()
     print(results)
-    print(results[(results.model == "Random Forest Regressor") & (results.dataset == "ames_housing")])
-    results.to_csv("data/results.csv")
+    print(results[(results.model == "Linear Regression")\
+                  & (results.dataset == "ames_housing")][["method", "score", "dimension"]])
+    results.to_csv("../data/results.csv")
 
 
 if __name__ == "__main__":

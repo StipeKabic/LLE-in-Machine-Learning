@@ -43,13 +43,13 @@ class DatasetLoader:
 
     def load_heart_attack(self):
         # https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset
-        df = pd.read_csv('data/heart.csv')
+        df = pd.read_csv('../data/heart.csv')
         df.rename(columns={'output': 'target'}, inplace=True)
         self.datasets['heart_attack'] = {'data': df, 'target_name': 'target', 'type': 'c'}
 
     def load_stroke(self):
         # https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
-        df = pd.read_csv('data/healthcare-dataset-stroke-data.csv')
+        df = pd.read_csv('../data/healthcare-dataset-stroke-data.csv')
         # df.rename(columns={'stroke' : 'target'}, inplace=True)
         df.dropna(inplace=True)
         df = pd.get_dummies(df, columns=["gender", "ever_married", "work_type", "Residence_type", "smoking_status"])
