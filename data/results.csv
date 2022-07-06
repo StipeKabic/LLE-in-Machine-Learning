@@ -1,0 +1,495 @@
+,model,dataset,score,method,dimension
+0,Logistic Regression,iris,0.9473684210526316,Original dimensionality,4
+1,Random Forest Classifier,iris,0.9736842105263157,Original dimensionality,4
+2,Logistic Regression,iris,0.9368421052631579,Principal Component Analysis,1
+3,Random Forest Classifier,iris,0.9210526315789473,Principal Component Analysis,1
+4,Linear Regression,california_housing,-0.013367579473508862,Principal Component Analysis,1
+5,Random Forest Regressor,california_housing,-0.024538671845764082,Principal Component Analysis,1
+6,Linear Regression,ames_housing,0.0712468011529451,Principal Component Analysis,1
+7,Random Forest Regressor,ames_housing,0.18304284602846582,Principal Component Analysis,1
+8,Logistic Regression,heart_attack,0.5789473684210527,Principal Component Analysis,1
+9,Random Forest Classifier,heart_attack,0.5499999999999999,Principal Component Analysis,1
+10,Logistic Regression,stroke,0.9592,Principal Component Analysis,1
+11,Random Forest Classifier,stroke,0.9592,Principal Component Analysis,1
+12,Logistic Regression,iris,0.9157894736842105,Principal Component Analysis,2
+13,Random Forest Classifier,iris,0.9421052631578948,Principal Component Analysis,2
+14,Linear Regression,california_housing,-9.677869373669878e-06,Principal Component Analysis,2
+15,Random Forest Regressor,california_housing,0.008754323495244765,Principal Component Analysis,2
+16,Linear Regression,ames_housing,0.6599624977086099,Principal Component Analysis,2
+17,Random Forest Regressor,ames_housing,0.6637265949511817,Principal Component Analysis,2
+18,Logistic Regression,heart_attack,0.7289473684210527,Principal Component Analysis,2
+19,Random Forest Classifier,heart_attack,0.6578947368421053,Principal Component Analysis,2
+20,Logistic Regression,stroke,0.9576000000000001,Principal Component Analysis,2
+21,Random Forest Classifier,stroke,0.9576000000000001,Principal Component Analysis,2
+22,Logistic Regression,iris,0.8842105263157894,Principal Component Analysis,3
+23,Random Forest Classifier,iris,0.9421052631578946,Principal Component Analysis,3
+24,Linear Regression,california_housing,0.009568012512680447,Principal Component Analysis,3
+25,Random Forest Regressor,california_housing,0.08270683925692865,Principal Component Analysis,3
+26,Linear Regression,ames_housing,0.6078505998500431,Principal Component Analysis,3
+27,Random Forest Regressor,ames_housing,0.667246994647239,Principal Component Analysis,3
+28,Logistic Regression,heart_attack,0.7236842105263157,Principal Component Analysis,3
+29,Random Forest Classifier,heart_attack,0.6710526315789473,Principal Component Analysis,3
+30,Logistic Regression,stroke,0.9528000000000001,Principal Component Analysis,3
+31,Random Forest Classifier,stroke,0.9528000000000001,Principal Component Analysis,3
+32,Logistic Regression,iris,0.9473684210526316,Locally linear embedding,1
+33,Random Forest Classifier,iris,0.9684210526315788,Locally linear embedding,1
+34,Linear Regression,california_housing,-0.026555247144069115,Locally linear embedding,1
+35,Random Forest Regressor,california_housing,-0.08869720429946915,Locally linear embedding,1
+36,Linear Regression,ames_housing,0.024770260551111555,Locally linear embedding,1
+37,Random Forest Regressor,ames_housing,-0.009242592406815242,Locally linear embedding,1
+38,Logistic Regression,heart_attack,0.5815789473684211,Locally linear embedding,1
+39,Random Forest Classifier,heart_attack,0.55,Locally linear embedding,1
+40,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,1
+41,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,1
+42,Logistic Regression,iris,0.9578947368421051,Locally linear embedding,2
+43,Random Forest Classifier,iris,0.9684210526315788,Locally linear embedding,2
+44,Linear Regression,california_housing,-0.028979897792463526,Locally linear embedding,2
+45,Random Forest Regressor,california_housing,-0.05644704778380609,Locally linear embedding,2
+46,Linear Regression,ames_housing,-0.16577684666190293,Locally linear embedding,2
+47,Random Forest Regressor,ames_housing,0.28672615113180333,Locally linear embedding,2
+48,Logistic Regression,heart_attack,0.7289473684210527,Locally linear embedding,2
+49,Random Forest Classifier,heart_attack,0.6631578947368422,Locally linear embedding,2
+50,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,2
+51,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,2
+52,Logistic Regression,iris,0.9578947368421051,Locally linear embedding,3
+53,Random Forest Classifier,iris,0.9684210526315788,Locally linear embedding,3
+54,Linear Regression,california_housing,-0.03024333268714368,Locally linear embedding,3
+55,Random Forest Regressor,california_housing,-0.04676536902969739,Locally linear embedding,3
+56,Linear Regression,ames_housing,0.46989954938972034,Locally linear embedding,3
+57,Random Forest Regressor,ames_housing,0.5351598199611565,Locally linear embedding,3
+58,Logistic Regression,heart_attack,0.731578947368421,Locally linear embedding,3
+59,Random Forest Classifier,heart_attack,0.6500000000000001,Locally linear embedding,3
+60,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,3
+61,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,3
+62,Linear Regression,california_housing,0.5773438520118201,Original dimensionality,8
+63,Random Forest Regressor,california_housing,0.5747772682847596,Original dimensionality,8
+64,Linear Regression,california_housing,0.3839516877750218,Principal Component Analysis,4
+65,Random Forest Regressor,california_housing,0.46383342876542977,Principal Component Analysis,4
+66,Linear Regression,ames_housing,0.534455551198211,Principal Component Analysis,4
+67,Random Forest Regressor,ames_housing,0.6682811970513753,Principal Component Analysis,4
+68,Logistic Regression,heart_attack,0.7236842105263158,Principal Component Analysis,4
+69,Random Forest Classifier,heart_attack,0.7,Principal Component Analysis,4
+70,Logistic Regression,stroke,0.9567999999999999,Principal Component Analysis,4
+71,Random Forest Classifier,stroke,0.9567999999999999,Principal Component Analysis,4
+72,Linear Regression,california_housing,0.5321908017274568,Principal Component Analysis,5
+73,Random Forest Regressor,california_housing,0.5430153840393179,Principal Component Analysis,5
+74,Linear Regression,ames_housing,0.6304472462971903,Principal Component Analysis,5
+75,Random Forest Regressor,ames_housing,0.666059536138638,Principal Component Analysis,5
+76,Logistic Regression,heart_attack,0.8236842105263158,Principal Component Analysis,5
+77,Random Forest Classifier,heart_attack,0.8052631578947369,Principal Component Analysis,5
+78,Logistic Regression,stroke,0.9512,Principal Component Analysis,5
+79,Random Forest Classifier,stroke,0.9512,Principal Component Analysis,5
+80,Linear Regression,california_housing,0.5598872417973425,Principal Component Analysis,6
+81,Random Forest Regressor,california_housing,0.5983727288882936,Principal Component Analysis,6
+82,Linear Regression,ames_housing,0.5122651324856456,Principal Component Analysis,6
+83,Random Forest Regressor,ames_housing,0.657194662902487,Principal Component Analysis,6
+84,Logistic Regression,heart_attack,0.8078947368421053,Principal Component Analysis,6
+85,Random Forest Classifier,heart_attack,0.7947368421052631,Principal Component Analysis,6
+86,Logistic Regression,stroke,0.9536,Principal Component Analysis,6
+87,Random Forest Classifier,stroke,0.9536,Principal Component Analysis,6
+88,Linear Regression,california_housing,0.5662478102551064,Principal Component Analysis,7
+89,Random Forest Regressor,california_housing,0.573710358968462,Principal Component Analysis,7
+90,Linear Regression,ames_housing,0.5231176061085261,Principal Component Analysis,7
+91,Random Forest Regressor,ames_housing,0.6520906198710861,Principal Component Analysis,7
+92,Logistic Regression,heart_attack,0.8105263157894735,Principal Component Analysis,7
+93,Random Forest Classifier,heart_attack,0.8026315789473684,Principal Component Analysis,7
+94,Logistic Regression,stroke,0.948,Principal Component Analysis,7
+95,Random Forest Classifier,stroke,0.948,Principal Component Analysis,7
+96,Linear Regression,california_housing,-0.030257566401152132,Locally linear embedding,4
+97,Random Forest Regressor,california_housing,-0.04973363546846077,Locally linear embedding,4
+98,Linear Regression,ames_housing,0.46595899017443854,Locally linear embedding,4
+99,Random Forest Regressor,ames_housing,0.5599924913376579,Locally linear embedding,4
+100,Logistic Regression,heart_attack,0.7263157894736842,Locally linear embedding,4
+101,Random Forest Classifier,heart_attack,0.6868421052631578,Locally linear embedding,4
+102,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,4
+103,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,4
+104,Linear Regression,california_housing,-0.02421483516068861,Locally linear embedding,5
+105,Random Forest Regressor,california_housing,-0.04766233180742918,Locally linear embedding,5
+106,Linear Regression,ames_housing,0.5134020744643877,Locally linear embedding,5
+107,Random Forest Regressor,ames_housing,0.5962943589382053,Locally linear embedding,5
+108,Logistic Regression,heart_attack,0.7157894736842105,Locally linear embedding,5
+109,Random Forest Classifier,heart_attack,0.6842105263157894,Locally linear embedding,5
+110,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,5
+111,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,5
+112,Linear Regression,california_housing,-0.020676895007096574,Locally linear embedding,6
+113,Random Forest Regressor,california_housing,-0.04787717538128309,Locally linear embedding,6
+114,Linear Regression,ames_housing,0.5271334341007052,Locally linear embedding,6
+115,Random Forest Regressor,ames_housing,0.5895373825074415,Locally linear embedding,6
+116,Logistic Regression,heart_attack,0.7210526315789474,Locally linear embedding,6
+117,Random Forest Classifier,heart_attack,0.6789473684210526,Locally linear embedding,6
+118,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,6
+119,Random Forest Classifier,stroke,0.9575999999999998,Locally linear embedding,6
+120,Linear Regression,california_housing,-0.022925239569167546,Locally linear embedding,7
+121,Random Forest Regressor,california_housing,-0.04336595391474414,Locally linear embedding,7
+122,Linear Regression,ames_housing,0.584669543693348,Locally linear embedding,7
+123,Random Forest Regressor,ames_housing,0.5939632107894097,Locally linear embedding,7
+124,Logistic Regression,heart_attack,0.7105263157894737,Locally linear embedding,7
+125,Random Forest Classifier,heart_attack,0.6789473684210526,Locally linear embedding,7
+126,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,7
+127,Random Forest Classifier,stroke,0.9591999999999998,Locally linear embedding,7
+128,Linear Regression,ames_housing,0.7081522836302035,Original dimensionality,80
+129,Random Forest Regressor,ames_housing,0.8182228600602629,Original dimensionality,80
+130,Linear Regression,ames_housing,0.5778777239318188,Principal Component Analysis,8
+131,Random Forest Regressor,ames_housing,0.6680188446513389,Principal Component Analysis,8
+132,Logistic Regression,heart_attack,0.8473684210526315,Principal Component Analysis,8
+133,Random Forest Classifier,heart_attack,0.8500000000000001,Principal Component Analysis,8
+134,Logistic Regression,stroke,0.952,Principal Component Analysis,8
+135,Random Forest Classifier,stroke,0.952,Principal Component Analysis,8
+136,Linear Regression,ames_housing,0.6916131732626928,Principal Component Analysis,9
+137,Random Forest Regressor,ames_housing,0.6853554653859725,Principal Component Analysis,9
+138,Logistic Regression,heart_attack,0.8578947368421053,Principal Component Analysis,9
+139,Random Forest Classifier,heart_attack,0.8368421052631578,Principal Component Analysis,9
+140,Logistic Regression,stroke,0.9528,Principal Component Analysis,9
+141,Random Forest Classifier,stroke,0.9528,Principal Component Analysis,9
+142,Linear Regression,ames_housing,0.686151620656495,Principal Component Analysis,10
+143,Random Forest Regressor,ames_housing,0.6538590290283587,Principal Component Analysis,10
+144,Logistic Regression,heart_attack,0.8605263157894737,Principal Component Analysis,10
+145,Random Forest Classifier,heart_attack,0.8421052631578947,Principal Component Analysis,10
+146,Logistic Regression,stroke,0.956,Principal Component Analysis,10
+147,Random Forest Classifier,stroke,0.956,Principal Component Analysis,10
+148,Linear Regression,ames_housing,0.4882562860223909,Principal Component Analysis,11
+149,Random Forest Regressor,ames_housing,0.6587732313902499,Principal Component Analysis,11
+150,Logistic Regression,heart_attack,0.8447368421052631,Principal Component Analysis,11
+151,Random Forest Classifier,heart_attack,0.831578947368421,Principal Component Analysis,11
+152,Logistic Regression,stroke,0.9551999999999999,Principal Component Analysis,11
+153,Random Forest Classifier,stroke,0.9544,Principal Component Analysis,11
+154,Linear Regression,ames_housing,0.7097225518793391,Principal Component Analysis,12
+155,Random Forest Regressor,ames_housing,0.6576195681734297,Principal Component Analysis,12
+156,Logistic Regression,heart_attack,0.8394736842105264,Principal Component Analysis,12
+157,Random Forest Classifier,heart_attack,0.8394736842105263,Principal Component Analysis,12
+158,Logistic Regression,stroke,0.9511999999999999,Principal Component Analysis,12
+159,Random Forest Classifier,stroke,0.9504,Principal Component Analysis,12
+160,Linear Regression,ames_housing,0.5689740177276799,Principal Component Analysis,13
+161,Random Forest Regressor,ames_housing,0.6476093961655323,Principal Component Analysis,13
+162,Logistic Regression,stroke,0.9520000000000001,Principal Component Analysis,13
+163,Random Forest Classifier,stroke,0.9504,Principal Component Analysis,13
+164,Linear Regression,ames_housing,0.6254038246209668,Principal Component Analysis,14
+165,Random Forest Regressor,ames_housing,0.6360203096870718,Principal Component Analysis,14
+166,Logistic Regression,stroke,0.9536,Principal Component Analysis,14
+167,Random Forest Classifier,stroke,0.9536,Principal Component Analysis,14
+168,Linear Regression,ames_housing,0.6322328015017122,Principal Component Analysis,15
+169,Random Forest Regressor,ames_housing,0.6294084036671094,Principal Component Analysis,15
+170,Logistic Regression,stroke,0.9536,Principal Component Analysis,15
+171,Random Forest Classifier,stroke,0.9528,Principal Component Analysis,15
+172,Linear Regression,ames_housing,0.5643796840423265,Principal Component Analysis,16
+173,Random Forest Regressor,ames_housing,0.6532770812326478,Principal Component Analysis,16
+174,Logistic Regression,stroke,0.9511999999999999,Principal Component Analysis,16
+175,Random Forest Classifier,stroke,0.9511999999999999,Principal Component Analysis,16
+176,Linear Regression,ames_housing,0.6062202423041166,Principal Component Analysis,17
+177,Random Forest Regressor,ames_housing,0.6479198121926111,Principal Component Analysis,17
+178,Logistic Regression,stroke,0.9607999999999999,Principal Component Analysis,17
+179,Random Forest Classifier,stroke,0.9607999999999999,Principal Component Analysis,17
+180,Linear Regression,ames_housing,0.7248981873881615,Principal Component Analysis,18
+181,Random Forest Regressor,ames_housing,0.6744447565523182,Principal Component Analysis,18
+182,Logistic Regression,stroke,0.9607999999999999,Principal Component Analysis,18
+183,Random Forest Classifier,stroke,0.9607999999999999,Principal Component Analysis,18
+184,Linear Regression,ames_housing,0.7202225643844085,Principal Component Analysis,19
+185,Random Forest Regressor,ames_housing,0.6738852724851165,Principal Component Analysis,19
+186,Logistic Regression,stroke,0.9607999999999999,Principal Component Analysis,19
+187,Random Forest Classifier,stroke,0.9607999999999999,Principal Component Analysis,19
+188,Linear Regression,ames_housing,0.6794132467730134,Principal Component Analysis,20
+189,Random Forest Regressor,ames_housing,0.6756854873077344,Principal Component Analysis,20
+190,Logistic Regression,stroke,0.9607999999999999,Principal Component Analysis,20
+191,Random Forest Classifier,stroke,0.9607999999999999,Principal Component Analysis,20
+192,Linear Regression,ames_housing,0.5007429987016911,Principal Component Analysis,21
+193,Random Forest Regressor,ames_housing,0.7103378534177066,Principal Component Analysis,21
+194,Linear Regression,ames_housing,0.6201511431403433,Principal Component Analysis,22
+195,Random Forest Regressor,ames_housing,0.6907326093078335,Principal Component Analysis,22
+196,Linear Regression,ames_housing,0.6992832472697441,Principal Component Analysis,23
+197,Random Forest Regressor,ames_housing,0.652543517521574,Principal Component Analysis,23
+198,Linear Regression,ames_housing,0.6340164488977326,Principal Component Analysis,24
+199,Random Forest Regressor,ames_housing,0.6445381712105285,Principal Component Analysis,24
+200,Linear Regression,ames_housing,0.7259935545995826,Principal Component Analysis,25
+201,Random Forest Regressor,ames_housing,0.678640055303912,Principal Component Analysis,25
+202,Linear Regression,ames_housing,0.617626188618864,Principal Component Analysis,26
+203,Random Forest Regressor,ames_housing,0.6664961357694188,Principal Component Analysis,26
+204,Linear Regression,ames_housing,0.58582901339343,Principal Component Analysis,27
+205,Random Forest Regressor,ames_housing,0.6545875093186829,Principal Component Analysis,27
+206,Linear Regression,ames_housing,0.6805239802396343,Principal Component Analysis,28
+207,Random Forest Regressor,ames_housing,0.6430521747311932,Principal Component Analysis,28
+208,Linear Regression,ames_housing,0.6163458181424146,Principal Component Analysis,29
+209,Random Forest Regressor,ames_housing,0.6512264805663309,Principal Component Analysis,29
+210,Linear Regression,ames_housing,0.746090552965976,Principal Component Analysis,30
+211,Random Forest Regressor,ames_housing,0.6638129195264083,Principal Component Analysis,30
+212,Linear Regression,ames_housing,0.5517952302424676,Principal Component Analysis,31
+213,Random Forest Regressor,ames_housing,0.6460914365324483,Principal Component Analysis,31
+214,Linear Regression,ames_housing,0.6596260512128136,Principal Component Analysis,32
+215,Random Forest Regressor,ames_housing,0.625584612649401,Principal Component Analysis,32
+216,Linear Regression,ames_housing,0.7341592126996532,Principal Component Analysis,33
+217,Random Forest Regressor,ames_housing,0.6417544685165911,Principal Component Analysis,33
+218,Linear Regression,ames_housing,0.7151532891590339,Principal Component Analysis,34
+219,Random Forest Regressor,ames_housing,0.6592108778422139,Principal Component Analysis,34
+220,Linear Regression,ames_housing,0.6717892634776281,Principal Component Analysis,35
+221,Random Forest Regressor,ames_housing,0.665549010230932,Principal Component Analysis,35
+222,Linear Regression,ames_housing,0.7516359035097682,Principal Component Analysis,36
+223,Random Forest Regressor,ames_housing,0.6782380707185665,Principal Component Analysis,36
+224,Linear Regression,ames_housing,0.7511097408703513,Principal Component Analysis,37
+225,Random Forest Regressor,ames_housing,0.6960459839066861,Principal Component Analysis,37
+226,Linear Regression,ames_housing,0.6026017319123504,Principal Component Analysis,38
+227,Random Forest Regressor,ames_housing,0.695842665744468,Principal Component Analysis,38
+228,Linear Regression,ames_housing,0.7881167222543196,Principal Component Analysis,39
+229,Random Forest Regressor,ames_housing,0.6579835329585927,Principal Component Analysis,39
+230,Linear Regression,ames_housing,0.7499705227968249,Principal Component Analysis,40
+231,Random Forest Regressor,ames_housing,0.6411980997257156,Principal Component Analysis,40
+232,Linear Regression,ames_housing,0.6564368293863576,Principal Component Analysis,41
+233,Random Forest Regressor,ames_housing,0.6557601275729912,Principal Component Analysis,41
+234,Linear Regression,ames_housing,0.7973190983083733,Principal Component Analysis,42
+235,Random Forest Regressor,ames_housing,0.5998255192436832,Principal Component Analysis,42
+236,Linear Regression,ames_housing,0.7478789456297341,Principal Component Analysis,43
+237,Random Forest Regressor,ames_housing,0.603637304693697,Principal Component Analysis,43
+238,Linear Regression,ames_housing,0.7652575061535809,Principal Component Analysis,44
+239,Random Forest Regressor,ames_housing,0.6368565810575094,Principal Component Analysis,44
+240,Linear Regression,ames_housing,0.7032945020063724,Principal Component Analysis,45
+241,Random Forest Regressor,ames_housing,0.6409234867430359,Principal Component Analysis,45
+242,Linear Regression,ames_housing,0.6256738687715448,Principal Component Analysis,46
+243,Random Forest Regressor,ames_housing,0.6656120156312074,Principal Component Analysis,46
+244,Linear Regression,ames_housing,0.6876491510734006,Principal Component Analysis,47
+245,Random Forest Regressor,ames_housing,0.6146994313185252,Principal Component Analysis,47
+246,Linear Regression,ames_housing,0.7930851616159468,Principal Component Analysis,48
+247,Random Forest Regressor,ames_housing,0.6300969485106843,Principal Component Analysis,48
+248,Linear Regression,ames_housing,0.7045261798567073,Principal Component Analysis,49
+249,Random Forest Regressor,ames_housing,0.6443862144586897,Principal Component Analysis,49
+250,Linear Regression,ames_housing,0.7944736027466481,Principal Component Analysis,50
+251,Random Forest Regressor,ames_housing,0.631270100832256,Principal Component Analysis,50
+252,Linear Regression,ames_housing,0.7899028304939523,Principal Component Analysis,51
+253,Random Forest Regressor,ames_housing,0.6314240673998517,Principal Component Analysis,51
+254,Linear Regression,ames_housing,0.7577484061269999,Principal Component Analysis,52
+255,Random Forest Regressor,ames_housing,0.5960102692566207,Principal Component Analysis,52
+256,Linear Regression,ames_housing,0.8172920945887666,Principal Component Analysis,53
+257,Random Forest Regressor,ames_housing,0.6014888513401981,Principal Component Analysis,53
+258,Linear Regression,ames_housing,0.699233616216865,Principal Component Analysis,54
+259,Random Forest Regressor,ames_housing,0.5945621722696346,Principal Component Analysis,54
+260,Linear Regression,ames_housing,0.7866347481457497,Principal Component Analysis,55
+261,Random Forest Regressor,ames_housing,0.6221535627679926,Principal Component Analysis,55
+262,Linear Regression,ames_housing,0.7520586044873543,Principal Component Analysis,56
+263,Random Forest Regressor,ames_housing,0.6117544258190694,Principal Component Analysis,56
+264,Linear Regression,ames_housing,0.7740022268378924,Principal Component Analysis,57
+265,Random Forest Regressor,ames_housing,0.6046274074757368,Principal Component Analysis,57
+266,Linear Regression,ames_housing,0.6892292262151011,Principal Component Analysis,58
+267,Random Forest Regressor,ames_housing,0.626674696455645,Principal Component Analysis,58
+268,Linear Regression,ames_housing,0.600481075470086,Principal Component Analysis,59
+269,Random Forest Regressor,ames_housing,0.6100915256350538,Principal Component Analysis,59
+270,Linear Regression,ames_housing,0.656821761004904,Principal Component Analysis,60
+271,Random Forest Regressor,ames_housing,0.6123163887444102,Principal Component Analysis,60
+272,Linear Regression,ames_housing,0.7395242349145146,Principal Component Analysis,61
+273,Random Forest Regressor,ames_housing,0.6097494424581965,Principal Component Analysis,61
+274,Linear Regression,ames_housing,0.7277925926717171,Principal Component Analysis,62
+275,Random Forest Regressor,ames_housing,0.6022338047601509,Principal Component Analysis,62
+276,Linear Regression,ames_housing,0.7826796170054949,Principal Component Analysis,63
+277,Random Forest Regressor,ames_housing,0.5980311204459883,Principal Component Analysis,63
+278,Linear Regression,ames_housing,0.7295541115886841,Principal Component Analysis,64
+279,Random Forest Regressor,ames_housing,0.6557075565604584,Principal Component Analysis,64
+280,Linear Regression,ames_housing,0.7295663767754637,Principal Component Analysis,65
+281,Random Forest Regressor,ames_housing,0.6436800750573514,Principal Component Analysis,65
+282,Linear Regression,ames_housing,0.7280190791505725,Principal Component Analysis,66
+283,Random Forest Regressor,ames_housing,0.6429253223619124,Principal Component Analysis,66
+284,Linear Regression,ames_housing,0.7319469805995834,Principal Component Analysis,67
+285,Random Forest Regressor,ames_housing,0.6404196089388642,Principal Component Analysis,67
+286,Linear Regression,ames_housing,0.7317301096303938,Principal Component Analysis,68
+287,Random Forest Regressor,ames_housing,0.6390400847556417,Principal Component Analysis,68
+288,Linear Regression,ames_housing,0.7294084121298234,Principal Component Analysis,69
+289,Random Forest Regressor,ames_housing,0.6372342010231924,Principal Component Analysis,69
+290,Linear Regression,ames_housing,0.7289293884335464,Principal Component Analysis,70
+291,Random Forest Regressor,ames_housing,0.6334035698515239,Principal Component Analysis,70
+292,Linear Regression,ames_housing,0.7256890244370351,Principal Component Analysis,71
+293,Random Forest Regressor,ames_housing,0.6302396951626881,Principal Component Analysis,71
+294,Linear Regression,ames_housing,0.7271817579007485,Principal Component Analysis,72
+295,Random Forest Regressor,ames_housing,0.6305030418294997,Principal Component Analysis,72
+296,Linear Regression,ames_housing,0.7258985598630193,Principal Component Analysis,73
+297,Random Forest Regressor,ames_housing,0.6263932512417815,Principal Component Analysis,73
+298,Linear Regression,ames_housing,0.7219948606225657,Principal Component Analysis,74
+299,Random Forest Regressor,ames_housing,0.6143717566159246,Principal Component Analysis,74
+300,Linear Regression,ames_housing,0.7252128605924626,Principal Component Analysis,75
+301,Random Forest Regressor,ames_housing,0.6211917319580089,Principal Component Analysis,75
+302,Linear Regression,ames_housing,0.5851028157038203,Principal Component Analysis,76
+303,Random Forest Regressor,ames_housing,0.6160135130641983,Principal Component Analysis,76
+304,Linear Regression,ames_housing,0.5781334852543916,Principal Component Analysis,77
+305,Random Forest Regressor,ames_housing,0.6186952615944201,Principal Component Analysis,77
+306,Linear Regression,ames_housing,0.5797367752520923,Principal Component Analysis,78
+307,Random Forest Regressor,ames_housing,0.6181495912368912,Principal Component Analysis,78
+308,Linear Regression,ames_housing,0.5790776961862526,Principal Component Analysis,79
+309,Random Forest Regressor,ames_housing,0.6107445318975856,Principal Component Analysis,79
+310,Linear Regression,ames_housing,0.5953189706831332,Locally linear embedding,8
+311,Random Forest Regressor,ames_housing,0.5896799851321542,Locally linear embedding,8
+312,Logistic Regression,heart_attack,0.7026315789473685,Locally linear embedding,8
+313,Random Forest Classifier,heart_attack,0.6815789473684211,Locally linear embedding,8
+314,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,8
+315,Random Forest Classifier,stroke,0.96,Locally linear embedding,8
+316,Linear Regression,ames_housing,0.5949062803485832,Locally linear embedding,9
+317,Random Forest Regressor,ames_housing,0.600807864557504,Locally linear embedding,9
+318,Logistic Regression,heart_attack,0.6815789473684211,Locally linear embedding,9
+319,Random Forest Classifier,heart_attack,0.6842105263157895,Locally linear embedding,9
+320,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,9
+321,Random Forest Classifier,stroke,0.9575999999999998,Locally linear embedding,9
+322,Linear Regression,ames_housing,0.5899053119513518,Locally linear embedding,10
+323,Random Forest Regressor,ames_housing,0.596656163688309,Locally linear embedding,10
+324,Logistic Regression,heart_attack,0.6868421052631579,Locally linear embedding,10
+325,Random Forest Classifier,heart_attack,0.6842105263157895,Locally linear embedding,10
+326,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,10
+327,Random Forest Classifier,stroke,0.9583999999999999,Locally linear embedding,10
+328,Linear Regression,ames_housing,0.5841423878147515,Locally linear embedding,11
+329,Random Forest Regressor,ames_housing,0.5881209306491852,Locally linear embedding,11
+330,Logistic Regression,heart_attack,0.6815789473684211,Locally linear embedding,11
+331,Random Forest Classifier,heart_attack,0.6815789473684211,Locally linear embedding,11
+332,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,11
+333,Random Forest Classifier,stroke,0.9591999999999998,Locally linear embedding,11
+334,Linear Regression,ames_housing,0.5026288941135962,Locally linear embedding,12
+335,Random Forest Regressor,ames_housing,0.5799506754669892,Locally linear embedding,12
+336,Logistic Regression,heart_attack,0.668421052631579,Locally linear embedding,12
+337,Random Forest Classifier,heart_attack,0.6894736842105262,Locally linear embedding,12
+338,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,12
+339,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,12
+340,Linear Regression,ames_housing,-0.18816540500799284,Locally linear embedding,13
+341,Random Forest Regressor,ames_housing,0.5933641913185723,Locally linear embedding,13
+342,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,13
+343,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,13
+344,Linear Regression,ames_housing,0.4416563481731351,Locally linear embedding,14
+345,Random Forest Regressor,ames_housing,0.5909652923176716,Locally linear embedding,14
+346,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,14
+347,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,14
+348,Linear Regression,ames_housing,0.20825524947949461,Locally linear embedding,15
+349,Random Forest Regressor,ames_housing,0.5760373668144743,Locally linear embedding,15
+350,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,15
+351,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,15
+352,Linear Regression,ames_housing,0.6455383379942952,Locally linear embedding,16
+353,Random Forest Regressor,ames_housing,0.603535491234799,Locally linear embedding,16
+354,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,16
+355,Random Forest Classifier,stroke,0.96,Locally linear embedding,16
+356,Linear Regression,ames_housing,0.6368540735000056,Locally linear embedding,17
+357,Random Forest Regressor,ames_housing,0.5931008063486418,Locally linear embedding,17
+358,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,17
+359,Random Forest Classifier,stroke,0.96,Locally linear embedding,17
+360,Linear Regression,ames_housing,0.5947395755764067,Locally linear embedding,18
+361,Random Forest Regressor,ames_housing,0.5891052882042943,Locally linear embedding,18
+362,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,18
+363,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,18
+364,Linear Regression,ames_housing,0.5914308068692559,Locally linear embedding,19
+365,Random Forest Regressor,ames_housing,0.5857391406578466,Locally linear embedding,19
+366,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,19
+367,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,19
+368,Linear Regression,ames_housing,0.625629104638366,Locally linear embedding,20
+369,Random Forest Regressor,ames_housing,0.5767034466372581,Locally linear embedding,20
+370,Logistic Regression,stroke,0.9607999999999999,Locally linear embedding,20
+371,Random Forest Classifier,stroke,0.9607999999999999,Locally linear embedding,20
+372,Linear Regression,ames_housing,0.636510930985374,Locally linear embedding,21
+373,Random Forest Regressor,ames_housing,0.58174476107109,Locally linear embedding,21
+374,Linear Regression,ames_housing,0.6331402362300618,Locally linear embedding,22
+375,Random Forest Regressor,ames_housing,0.569941698451977,Locally linear embedding,22
+376,Linear Regression,ames_housing,0.6018730289882027,Locally linear embedding,23
+377,Random Forest Regressor,ames_housing,0.5600423326025054,Locally linear embedding,23
+378,Linear Regression,ames_housing,0.6037581976823886,Locally linear embedding,24
+379,Random Forest Regressor,ames_housing,0.5538853345723529,Locally linear embedding,24
+380,Linear Regression,ames_housing,0.6096017491606306,Locally linear embedding,25
+381,Random Forest Regressor,ames_housing,0.5805591662272277,Locally linear embedding,25
+382,Linear Regression,ames_housing,0.6067167434432994,Locally linear embedding,26
+383,Random Forest Regressor,ames_housing,0.5703237489901367,Locally linear embedding,26
+384,Linear Regression,ames_housing,0.6070889561013527,Locally linear embedding,27
+385,Random Forest Regressor,ames_housing,0.5628196327766419,Locally linear embedding,27
+386,Linear Regression,ames_housing,0.591275224811629,Locally linear embedding,28
+387,Random Forest Regressor,ames_housing,0.5649665980472329,Locally linear embedding,28
+388,Linear Regression,ames_housing,0.5875875479578909,Locally linear embedding,29
+389,Random Forest Regressor,ames_housing,0.5531924621073895,Locally linear embedding,29
+390,Linear Regression,ames_housing,0.5774708703277116,Locally linear embedding,30
+391,Random Forest Regressor,ames_housing,0.5511059553385081,Locally linear embedding,30
+392,Linear Regression,ames_housing,0.5838233975007144,Locally linear embedding,31
+393,Random Forest Regressor,ames_housing,0.5452497320204573,Locally linear embedding,31
+394,Linear Regression,ames_housing,0.5856640693476233,Locally linear embedding,32
+395,Random Forest Regressor,ames_housing,0.5496545354144698,Locally linear embedding,32
+396,Linear Regression,ames_housing,0.5755250908663341,Locally linear embedding,33
+397,Random Forest Regressor,ames_housing,0.5435164540492082,Locally linear embedding,33
+398,Linear Regression,ames_housing,0.6080476144535156,Locally linear embedding,34
+399,Random Forest Regressor,ames_housing,0.542251406302921,Locally linear embedding,34
+400,Linear Regression,ames_housing,0.6107843141732553,Locally linear embedding,35
+401,Random Forest Regressor,ames_housing,0.5336310260489175,Locally linear embedding,35
+402,Linear Regression,ames_housing,0.6139993296000316,Locally linear embedding,36
+403,Random Forest Regressor,ames_housing,0.5565076302075791,Locally linear embedding,36
+404,Linear Regression,ames_housing,0.613483605481195,Locally linear embedding,37
+405,Random Forest Regressor,ames_housing,0.5555664131181973,Locally linear embedding,37
+406,Linear Regression,ames_housing,0.6197490109083498,Locally linear embedding,38
+407,Random Forest Regressor,ames_housing,0.5450602615543583,Locally linear embedding,38
+408,Linear Regression,ames_housing,0.6286027670092793,Locally linear embedding,39
+409,Random Forest Regressor,ames_housing,0.543563760981422,Locally linear embedding,39
+410,Linear Regression,ames_housing,0.6117775983216874,Locally linear embedding,40
+411,Random Forest Regressor,ames_housing,0.5371047522893017,Locally linear embedding,40
+412,Linear Regression,ames_housing,0.6099606190609431,Locally linear embedding,41
+413,Random Forest Regressor,ames_housing,0.5371168178893374,Locally linear embedding,41
+414,Linear Regression,ames_housing,0.606995864062075,Locally linear embedding,42
+415,Random Forest Regressor,ames_housing,0.5277823206306975,Locally linear embedding,42
+416,Linear Regression,ames_housing,0.6007206707192464,Locally linear embedding,43
+417,Random Forest Regressor,ames_housing,0.5235308468272963,Locally linear embedding,43
+418,Linear Regression,ames_housing,0.6032715456621116,Locally linear embedding,44
+419,Random Forest Regressor,ames_housing,0.5270849957413456,Locally linear embedding,44
+420,Linear Regression,ames_housing,0.6134930176531782,Locally linear embedding,45
+421,Random Forest Regressor,ames_housing,0.5198263448124099,Locally linear embedding,45
+422,Linear Regression,ames_housing,0.6037710131200832,Locally linear embedding,46
+423,Random Forest Regressor,ames_housing,0.5122560506145374,Locally linear embedding,46
+424,Linear Regression,ames_housing,0.6084680952412895,Locally linear embedding,47
+425,Random Forest Regressor,ames_housing,0.5094908602756894,Locally linear embedding,47
+426,Linear Regression,ames_housing,0.6153591365338925,Locally linear embedding,48
+427,Random Forest Regressor,ames_housing,0.5033117364891074,Locally linear embedding,48
+428,Linear Regression,ames_housing,0.617464358288361,Locally linear embedding,49
+429,Random Forest Regressor,ames_housing,0.5239697318895892,Locally linear embedding,49
+430,Linear Regression,ames_housing,0.6324072426064036,Locally linear embedding,50
+431,Random Forest Regressor,ames_housing,0.52879580972218,Locally linear embedding,50
+432,Linear Regression,ames_housing,0.6289384973766006,Locally linear embedding,51
+433,Random Forest Regressor,ames_housing,0.5227038148306158,Locally linear embedding,51
+434,Linear Regression,ames_housing,0.6280187694211612,Locally linear embedding,52
+435,Random Forest Regressor,ames_housing,0.5199669429032403,Locally linear embedding,52
+436,Linear Regression,ames_housing,0.6191485221834871,Locally linear embedding,53
+437,Random Forest Regressor,ames_housing,0.5157871398935474,Locally linear embedding,53
+438,Linear Regression,ames_housing,0.6103018796309297,Locally linear embedding,54
+439,Random Forest Regressor,ames_housing,0.5126651181382953,Locally linear embedding,54
+440,Linear Regression,ames_housing,0.6049975487715793,Locally linear embedding,55
+441,Random Forest Regressor,ames_housing,0.5210157180934405,Locally linear embedding,55
+442,Linear Regression,ames_housing,0.6036193347498467,Locally linear embedding,56
+443,Random Forest Regressor,ames_housing,0.5098673077100719,Locally linear embedding,56
+444,Linear Regression,ames_housing,0.608618887624024,Locally linear embedding,57
+445,Random Forest Regressor,ames_housing,0.5038375947610608,Locally linear embedding,57
+446,Linear Regression,ames_housing,0.608177542548245,Locally linear embedding,58
+447,Random Forest Regressor,ames_housing,0.4945084135640603,Locally linear embedding,58
+448,Linear Regression,ames_housing,0.6077983454618874,Locally linear embedding,59
+449,Random Forest Regressor,ames_housing,0.4945725928868182,Locally linear embedding,59
+450,Linear Regression,ames_housing,0.6037763491796279,Locally linear embedding,60
+451,Random Forest Regressor,ames_housing,0.49963431535021663,Locally linear embedding,60
+452,Linear Regression,ames_housing,0.6027914443702642,Locally linear embedding,61
+453,Random Forest Regressor,ames_housing,0.482773396580079,Locally linear embedding,61
+454,Linear Regression,ames_housing,0.599910178515505,Locally linear embedding,62
+455,Random Forest Regressor,ames_housing,0.49079270144646825,Locally linear embedding,62
+456,Linear Regression,ames_housing,0.5985458716803395,Locally linear embedding,63
+457,Random Forest Regressor,ames_housing,0.4838816768113704,Locally linear embedding,63
+458,Linear Regression,ames_housing,0.5955214677173666,Locally linear embedding,64
+459,Random Forest Regressor,ames_housing,0.4987719109145311,Locally linear embedding,64
+460,Linear Regression,ames_housing,0.5917976284200835,Locally linear embedding,65
+461,Random Forest Regressor,ames_housing,0.4991573975966671,Locally linear embedding,65
+462,Linear Regression,ames_housing,0.5914267320443783,Locally linear embedding,66
+463,Random Forest Regressor,ames_housing,0.5113222697052039,Locally linear embedding,66
+464,Linear Regression,ames_housing,0.5863966397238021,Locally linear embedding,67
+465,Random Forest Regressor,ames_housing,0.49594940818220506,Locally linear embedding,67
+466,Linear Regression,ames_housing,0.5842652834184717,Locally linear embedding,68
+467,Random Forest Regressor,ames_housing,0.49772032517391906,Locally linear embedding,68
+468,Linear Regression,ames_housing,0.581713920713361,Locally linear embedding,69
+469,Random Forest Regressor,ames_housing,0.4866880068727923,Locally linear embedding,69
+470,Linear Regression,ames_housing,0.5752789429827203,Locally linear embedding,70
+471,Random Forest Regressor,ames_housing,0.49083817391949114,Locally linear embedding,70
+472,Linear Regression,ames_housing,0.5728353511354647,Locally linear embedding,71
+473,Random Forest Regressor,ames_housing,0.48933457798030966,Locally linear embedding,71
+474,Linear Regression,ames_housing,0.5671569454117721,Locally linear embedding,72
+475,Random Forest Regressor,ames_housing,0.48518631286337977,Locally linear embedding,72
+476,Linear Regression,ames_housing,0.5614854771884068,Locally linear embedding,73
+477,Random Forest Regressor,ames_housing,0.48995743319182267,Locally linear embedding,73
+478,Linear Regression,ames_housing,0.5702661939896438,Locally linear embedding,74
+479,Random Forest Regressor,ames_housing,0.4764240844566319,Locally linear embedding,74
+480,Linear Regression,ames_housing,0.5688911698117248,Locally linear embedding,75
+481,Random Forest Regressor,ames_housing,0.4790022197402718,Locally linear embedding,75
+482,Linear Regression,ames_housing,0.5681379437633539,Locally linear embedding,76
+483,Random Forest Regressor,ames_housing,0.475608084699712,Locally linear embedding,76
+484,Linear Regression,ames_housing,0.5667488843620655,Locally linear embedding,77
+485,Random Forest Regressor,ames_housing,0.4759952974269178,Locally linear embedding,77
+486,Linear Regression,ames_housing,0.5702959333947843,Locally linear embedding,78
+487,Random Forest Regressor,ames_housing,0.4681601524104529,Locally linear embedding,78
+488,Linear Regression,ames_housing,0.567067569975827,Locally linear embedding,79
+489,Random Forest Regressor,ames_housing,0.4702544603072861,Locally linear embedding,79
+490,Logistic Regression,heart_attack,0.8526315789473684,Original dimensionality,13
+491,Random Forest Classifier,heart_attack,0.8473684210526315,Original dimensionality,13
+492,Logistic Regression,stroke,0.9607999999999999,Original dimensionality,21
+493,Random Forest Classifier,stroke,0.9607999999999999,Original dimensionality,21

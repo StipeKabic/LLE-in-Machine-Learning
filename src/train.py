@@ -15,7 +15,7 @@ import numpy as np
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler, PowerTransformer, QuantileTransformer
 
-NUM_OF_SPLITS = 3
+import warnings
 
 
 class SplitDataset:
@@ -24,6 +24,7 @@ class SplitDataset:
         self.x_test = x_test
         self.y_train = y_train
         self.y_test = y_test
+
 
 def apply_method(x, method, method_config, LLEClass):
     if method == Methods.PCA:
@@ -40,6 +41,7 @@ def apply_method(x, method, method_config, LLEClass):
         raise NotImplementedError
     return x
 
+
 def get_xy(dataset):
     try:
         dataset.data = dataset.data.sample(1000)
@@ -48,11 +50,12 @@ def get_xy(dataset):
 
     x, y = dataset.data.drop(columns=[dataset.target_name]), dataset.data[dataset.target_name]
 
-    return x,y
+    return x, y
 
-def split_dataset(x,y, method, method_config, LLEClass):
+
+def split_dataset(x, y, method, method_config, LLEClass):
     x = apply_method(x, method, method_config, LLEClass)
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.35, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25)  # , random_state=42)
     return SplitDataset(x_train, x_test, y_train, y_test)
 
 
@@ -94,27 +97,37 @@ class Trainer:
 
     def train(self, model_name, _model, dataset, type, LLEClass, x, y):
         scores = {}
+        NUM_OF_SPLITS = 5
 
         # model = make_pipeline(PowerTransformer(), RobustScaler(), _model)
         model = make_pipeline(RobustScaler(), _model)
 
         "train with original data"
         dimension = len(dataset.data.columns) - 1
-        split = split_dataset(x,y, Methods.Full, self.method_config, LLEClass)
-
-        model.fit(split.x_train, split.y_train)
-        score = model.score(split.x_test, split.y_test)
-        scores[Methods.Full.value + f"_{dimension}"] = score
+        for seed in range(NUM_OF_SPLITS):
+            np.random.seed(seed)
+            split = split_dataset(x, y, Methods.Full, self.method_config, LLEClass)
+            model.fit(split.x_train, split.y_train)
+            score = model.score(split.x_test, split.y_test) / NUM_OF_SPLITS
+            if seed == 0:
+                scores[Methods.Full.value + f"_{dimension}"] = score
+            else:
+                scores[Methods.Full.value + f"_{dimension}"] += score
 
         for method in self.method_config:
-            print(f"Training {model_name} on {dataset.name} with {method.value}")
-            for dimension in tqdm(self.dimensions[dataset.name]):
-                self.method_config[method]["n_components"] = dimension
-                split = split_dataset(x, y, method, self.method_config, LLEClass)
+            # print(f"Training {model_name} on {dataset.name} with {method.value}")
+            for dimension in self.dimensions[dataset.name]:
+                for seed in range(NUM_OF_SPLITS):
+                    np.random.seed(seed)
+                    self.method_config[method]["n_components"] = dimension
+                    split = split_dataset(x, y, method, self.method_config, LLEClass)
 
-                model.fit(split.x_train, split.y_train)
-                score = model.score(split.x_test, split.y_test)
-                scores[method.value + f"_{dimension}"] = score
+                    model.fit(split.x_train, split.y_train)
+                    score = model.score(split.x_test, split.y_test) / NUM_OF_SPLITS
+                    if seed == 0:
+                        scores[method.value + f"_{dimension}"] = score
+                    else:
+                        scores[method.value + f"_{dimension}"] += score
 
         return scores
 
@@ -127,9 +140,9 @@ class Trainer:
 
     def train_all_combinations(self):
         for dataset in self.datasets:
-            x,y = get_xy(dataset)
+            x, y = get_xy(dataset)
             LLE = LLEClass(**self.method_config[Methods.LLE],
-                           X = x)
+                           X=x)
             if dataset.type == "r":
                 models = self.regression_models
             elif dataset.type == "c":
@@ -141,7 +154,7 @@ class Trainer:
                 model_class = self.init_models(model_name)
                 grid = make_grid(self.config[model_name])
                 results = {}
-                for params in grid:
+                for params in tqdm(grid):
                     if model_name != Models.Linear:
                         params["n_jobs"] = -1
                     model = model_class(**params)
@@ -175,36 +188,33 @@ def init_datasets():
     return datasets
 
 
+def warn(*args, **kwargs):
+    pass
+
+
 def main():
+    # warnings.warn = warn
+
     random.seed(42)
 
-    model_config_file = {Models.Logistic: {"penalty": ['l1', 'l2']},
-                         Models.RFC: {"n_estimators": [4, 8],
-                                      "max_depth": [3, 7],
-                                      "min_samples_split": [2, 4],
-                                      "min_samples_leaf": [1, 3],
-                                      "max_features": ["sqrt"]}
-                         }
+    model_config_file = {
+        Models.Logistic: {
+            "penalty": ['l2'],
+            "C": [0.01, 0.2, 0.5, 0.7, 0.9, 1, 1.2, 1.5],
+            "max_iter": [300]
+        },
+        Models.Linear: {
+            "alpha": [0.5, 0.7, 1, 1.5, 2],
+            "max_iter": [300]
+        },
+        Models.RFC: {"n_estimators": [150],
+                     "max_depth": [5],
+                     "min_samples_split": [2, 4, 6],
+                     "min_samples_leaf": [2, 4],
+                     "max_features": ["sqrt"]}
+    }
 
-    model_config_file[Models.Linear] = model_config_file[Models.Logistic]
-    model_config_file[Models.Linear].pop('penalty', None)
     model_config_file[Models.RFR] = model_config_file[Models.RFC]
-
-    classification_model_config_file = {Models.Logistic: {"penalty": 'none'},
-                                        Models.RFC: {"n_estimators": 20,
-                                                     "max_depth": 5,
-                                                     "min_samples_split": 2,
-                                                     "min_samples_leaf": 1,
-                                                     "max_features": "sqrt"}
-                                        }
-
-    regression_model_config_file = {Models.Linear: {},
-                                    Models.RFR: {"n_estimators": 20,
-                                                 "max_depth": 5,
-                                                 "min_samples_split": 2,
-                                                 "min_samples_leaf": 1,
-                                                 "max_features": "sqrt"}
-                                    }
 
     # TODO: add Methods.LLE config
     method_config_file = {Methods.PCA: {"n_components": None},
@@ -220,7 +230,7 @@ def main():
 
     results = trainer.process_results()
     print(results)
-    print(results[(results.model == "Linear Regression")\
+    print(results[(results.model == "Linear Regression") \
                   & (results.dataset == "ames_housing")][["method", "score", "dimension"]])
     results.to_csv("../data/results.csv")
 
